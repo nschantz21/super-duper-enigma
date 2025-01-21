@@ -1,5 +1,8 @@
+import os
+
 import streamlit as st
 from langchain_openai.chat_models import ChatOpenAI
+
 
 # Use the PORT environment variable if set; otherwise, default to 8501
 port = int(os.getenv("PORT", 8501))
@@ -25,6 +28,3 @@ with st.form("my_form"):
     if submitted and openai_api_key.startswith("sk-"):
         generate_response(text)
 
-# Run Streamlit on the specified port
-if __name__ == "__main__":
-    st.run(port=port, server_address="0.0.0.0")
